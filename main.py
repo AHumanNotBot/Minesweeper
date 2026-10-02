@@ -192,7 +192,7 @@ def main():
         except: pass
         #Flag part
         mods = pygame.key.get_mods()  # Get the state of the modifier keys
-        if mods & KMOD_CTRL and not board[x][y].revealed :  # Check if Alt key is pressed
+        if (mods & KMOD_CTRL or event.button == 3) and not board[x][y].revealed :  # Check if Alt key is pressed
             # Alt is held down and mouse button is clicked, toggle the flagged state
             board[x][y].flagged = not board[x][y].flagged
             x, y = None , None
